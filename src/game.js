@@ -1,36 +1,102 @@
-class Eggs{
+class Game {
     constructor(){
-        // position would have two values of Top and Right(left) in the div. [top:100px,left100:px]
-        this.position();
-        // how to give image to property? - done
-        this.image  = "../images/egg.jpg"
-        this.width = 
-        // here  also should be timer to move agg for some amout of time?
-        this.timer();
-        // starter of EGG position depends on where EGG will comde out? starter position either left side or right side
-        this.startPosition = [1,2,3,4];
-
+        this.playerTurn = 1;
+        this.startingPoints = [1,2,3,4];
+        this.startingPointforEggs = [1,2,3,4]
+        this.eggs = [1,2,3,4];
+        this.spawnRate = 10;        
     }
-    // Move 
-    move(argument){
-        argument = this.startPosition[Math.floor(Math.random()*this.startPosition.length)]
-        if (argument===1){
-            // every 0.1sec rudese top: px by 10px, increase right: but 10px
-            // starting position for egg is bottom left to come out
-        this.position[0]+=10;
-        this.position[1]+=10;
-        }
-        if (argument===2){
-             // starting position for egg is bottom right to come out
-        }
-        if (argument===3){
-             // starting position for egg is top left to come out
-            this.position[0]+=10;
-            this.position[1]+=10;
-        }
-        if (argument===4){
-             // starting position for egg is top right to come out
+    // spawnEggs in the game
+    spawnEggs(egg){
+        this.eggs.push(egg)
+        if(this.eggs.length === 0 ){
+            this.eggs.push(egg)
         }
     }
-   
+    // removes egg from screen when it gets to end of line
+    removeEggs(element){
+        return this.eggs.splice(indexOf(element),1);
+    }
+    // get random starting point for bucket
+    startingPoint() 
+    {    
+         return this.startingPoints[(Math.floor(Math.random()*4))];
+    }   
+    // get starting point for egg base
+    startingPointforBase(){
+        return this.startingPointforEggs[(Math.floor(Math.random()*4))]
+    }
 }
+
+
+let newGame = new Game();
+$(document).ready(function(){
+    
+
+    $('#start-game-button').click(function () {
+        // Timer
+        let timer = new Timer();    
+        timer.start();
+        timer.addEventListener('secondsUpdated', function (e) {
+            $('#values').html(timer.getTimeValues().toString());
+        });
+        // Random position for bucket. Switch can get two buckets at the same time. Fixed by If Else statements
+        // console.log(newGame.startingPoint());
+
+
+        if (newGame.startingPoint()===1){
+            document.getElementById("0.0").classList.add("change-blue-to-white");
+        }
+        else if(newGame.startingPoint()===2){
+            document.getElementById("0.1").classList.add("change-blue-to-white");
+
+        }
+        else if(newGame.startingPoint()===3){
+            document.getElementById("1.0").classList.add("change-blue-to-white");
+    
+        }
+        else if(newGame.startingPoint()===4){
+            document.getElementById("1.1").classList.add("change-blue-to-white");
+        
+        }
+        else {
+            document.getElementById("1.0").classList.add("change-blue-to-white")
+        }
+        setInterval(function(){ 
+            newGame.startingPointforBase();
+            if(newGame.startingPointforBase()===1){
+            document.getElementById("left-top").classList.add("change-blue-to-white")
+            }
+            if(newGame.startingPointforBase()===2){
+                document.getElementById("left-bottom").classList.add("change-blue-to-white")
+            }
+            if(newGame.startingPointforBase()===3){
+                document.getElementById("right-top").classList.add("change-blue-to-white")
+            }
+            if(newGame.startingPointforBase()===4){
+                document.getElementById("right-bottom").classList.add("change-blue-to-white")
+            }
+        },1000)
+        
+});
+
+
+    document.onkeydown  = function(e){
+         
+        switch (e.keyCode){
+            case 37:
+            $("0.0").addClass("change-blue-to-white")
+            document.getElementById("0.0").classList.add("change-blue-to-white");
+            break;
+            case 38:
+            document.getElementById("1.0").classList.add("change-blue-to-white")
+            break;
+            case 39:
+            document.getElementById("0.1").classList.add("change-blue-to-white")
+            break;
+            case 40:
+            document.getElementById("1.1").classList.add("change-blue-to-white")
+            break;
+        }
+    
+}})

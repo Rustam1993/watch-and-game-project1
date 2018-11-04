@@ -6,30 +6,67 @@
         <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/style.css">
         <title>Game and Watch</title>
     </head>
     <body>
+        <!-- Start game button -->
+        <div id ="startButton">
+           <button id = "start-game-button">Start the game</button>
+        </div>
+        <!-- Parent Div -->
+        <div id="parentDiv">
         <!-- Game window -->
-        <div>
+        <div id = "window">
             <!-- Bucket sections (matrix 2x2) -->
-            <div id= "0.0"></div>
-            <div id= "1.0"></div>
-            <div id= "0.1"></div>
-            <div id= "1.1"></div>
+            <div id = "bucket">
+                <div id= "0.0" class = "bucketSection">TopLeft</div>
+                <div id= "1.0" class = "bucketSection" >TopRight</div>
+                <div id= "0.1" class = "bucketSection">BottomLeft</div>
+                <div id= "1.1" class = "bucketSection">BottomRight</div>
+            </div>
             <!-- Eggs base sections ( 4 of them) -->
-            <div id = "left-bottom"></div>
-            <div id = "right-bottom"></div>
-            <div id = "left-top"></div>
-            <div id = "right-top"></div>
-            <!-- Sections for diagonal lines (45 degrees) -->
-            <div id = "line-left"></div>
-            <div id = "line-right"></div>
-            <div id = "line-left-top"></div>
-            <div id = "line-right-top"></div>
+            <div id = "left-side-for-egg-base">
+                <div id = "left-top"></div>
+                <div id = "left-bottom"></div>
+            </div>
+            <div id = "right-side-for-egg-base">
+                <div id = "right-top"></div>
+                <div id = "right-bottom"></div>
+            </div>
+            <!-- Sections for diagonal lines (45 degrees or so) -->
+            <div id = "line-left-top"><img src="images/leftLine.png" alt=""></div>
+            <div id = "line-left-bottom"><img src="images/leftLine.png" alt=""></div>
+            <div id = "line-right-top"><img src="images/rightLine.png" alt=""></div>
+            <div id = "line-right-bottom"><img src="images/rightLine.png" alt=""></div>
         </div>
 
+        <!-- Buttons for navigation -->
+        <div id ="navigationButtons">  
+            <!-- button ArrowUP -->
+            <div id = "arrowUp">
+                <button>⬆</button>
+            </div>
+            <!-- Buttons Left and Right -->
+            <div id = "leftAndright">
+                <button>⬅ </button>
+                <button>➡</button>
+            </div>
+            <!-- Button ArrowDown -->
+            <div id ="arrowDown">
+                <button> ⬇</button>
+            </div>            
+        
+        </div>
+        <div id = "values">00:00:00</div>
+        <!-- Score,Lifes, and PlayerTurn -->
+        <!-- <div id = "scoreBoard">
+            <p>Score: <span>0</span> <span> <p>Lifes: <span>5</span></p><span><p>Player Turn: <span>First Player</span></p></span></span></p>
+            <p>Lifes: <span>5</span></p>
+            <p>Player Turn: <span>First Player</span></p>
+        </div>
+         -->
 
 
 
@@ -38,8 +75,9 @@
 
 
 
-
-        <link rel="stylesheet" href="/src/eggsAndBucket.js">
-        <link rel="stylesheet" href="/src/game.js">
+        </div>
+        <script src="../easytimer/easytimer.js/dist/easytimer.js"></script>
+        <script src = "src/game.js"></script>
+        <script src="src/eggsAndBucket.js"></script>
     </body>
 </html>

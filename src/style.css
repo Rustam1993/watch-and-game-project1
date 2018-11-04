@@ -1,0 +1,131 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color:black;
+}
+/* #parentDiv{
+    display: flex;
+} */
+#startButton{
+    width: 100%;
+    display: flex;   
+    height: 50px;
+}
+#startButton button{        
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100px;
+    max-height: 50px;
+    
+}
+#window{
+    width: 900px;
+    height: 500px;
+    background-color: red;
+    margin-right: auto;
+    margin-left: auto;
+    color: white
+}
+#bucket{
+    position: relative;
+    width: 300px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    top: 23.40vw;
+    right: -23vw;
+    flex-wrap: wrap;
+}
+.bucketSection{
+    height: 100px;
+    width: 50%;
+    background-color: blue;
+}
+#left-side-for-egg-base{
+     
+    width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    position: relative;
+    top: -10vh;
+}
+#left-side-for-egg-base div{
+    height: 125px;
+    background-color: orange;
+    width:50px;
+}
+#right-side-for-egg-base{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50px;
+    height: 300px;
+    position: relative;
+    left: 66.4vw;
+    bottom: 29vw;
+}
+#right-side-for-egg-base div{
+    height: 125px;
+    background-color: orange;
+    width:50px;
+}
+#line-left-top{
+    position: relative;
+    width: auto;
+    bottom: 45vw;
+    left: 3vw;
+}
+#line-left-top img{
+    height: 197.1px;
+}
+#line-left-bottom{
+    position: relative;
+    width: auto;
+    bottom: 51vw;
+    left: 3vw;
+}
+#line-left-bottom img{
+    height: 197.1px;
+}
+#line-right-top{
+    position: relative;
+    width: auto;
+    bottom: 77vw;
+    left: 45vw;
+}
+#line-right-top img{
+    height: 197.1px;
+    width: 286px;
+}
+#line-right-bottom{
+    position: relative;
+    width: auto;
+    bottom: 82vw;
+    left: 45vw;
+}
+
+
+#line-right-bottom img{
+    height: 197.1px;
+    width: 286px;
+}
+#navigationButtons{
+    text-align: center;
+}
+#navigationButtons button {
+    height: 30px;
+    width:60px;
+    font-size: 19px;
+  
+}
+#scoreBoard{
+    color: white;
+}
+.change-blue-to-white{
+    background-color:white !important;
+}
+#values{
+    text-align: center;
+    color:white;
+}
