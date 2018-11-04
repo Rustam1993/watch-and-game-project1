@@ -129,3 +129,34 @@ html, body {
     text-align: center;
     color:white;
 }
+#egg{
+    /* display: none ; */
+    position: absolute;
+    background-image: url("../images/egg.jpg");
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+
+/* Positions for  */
+.div-top-left{
+    top: 140px;
+    left:252px;
+    display: unset;       
+}
+.div-top-right{
+    top:140px;
+    left:969px;
+     display: unset;  
+}
+.div-bottom-left{
+    top:281px;
+    left:254px;
+    display: unset;
+}
+.div-bottom-right{
+    top:281px;
+    left:969;
+    display: unset;
+}
