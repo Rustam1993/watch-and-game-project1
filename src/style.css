@@ -24,7 +24,8 @@ html, body {
     background-color: red;
     margin-right: auto;
     margin-left: auto;
-    color: white
+    color: white;
+    position: relative;
 }
 #bucket{
     position: relative;
@@ -41,6 +42,8 @@ html, body {
     height: 100px;
     width: 50%;
     background-color: blue;
+    font-size: 30px;
+    text-align: center;
 }
 #left-side-for-egg-base{
      
@@ -136,6 +139,7 @@ html, body {
     width: 50px;
     height: 50px;
     background-size: cover;
+    z-index: 1;
 }
 
 
@@ -159,4 +163,8 @@ html, body {
     top:281px;
     left:969;
     display: unset;
+}
+.black{
+    font-size: 15px;
+    color:white;
 }

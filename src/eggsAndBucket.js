@@ -2,27 +2,12 @@ class Player{
     constructor(){
         this.name = name;
         this.score = 0;
-        this.lifes = 5;
+        this.life = 5;
+        
         this.startingPoints = [1,2,3,4];
-        // location should one of the bucket divs 
         this.location = 0;
     }
 
-    canMove(){
-
-    }
-    Up(){
-
-    }
-    down(){
-
-    }
-    left(){
-
-    }
-    right(){
-
-    }
     startingPoint(){    
         return this.startingPoints[(Math.floor(Math.random()*4))];
    } 
@@ -31,59 +16,189 @@ class Player{
 class Egg{
     constructor(position){
         this.startingPoint = position;
+        this.counter = 1;
+        this.score = 0;
+        this.lifes = 5
+       
+        // 
+        this.x1= 134;
+        this.y1=  240;
+        // 
+        this.x2= 134;
+        this.y2=  982;
+
+        // 
+        this.x3 = 270;
+        this.y3=  987;
+        // 
+        this.x4= 270;
+        this.y4=  240;
         
-        this.eggCoordinates1 = [[1,4], [3, 12]];
-        this.eggCoordinates2 = [[1,4], [3, 12]];
-        this.eggCoordinates3 = [[1,4], [3, 12]];
-        this.eggCoordinates4 = [[1,4], [3, 12]];
-        // this.position = {locX: 0, locY: 0};
-        // this.image = "../images/egg.jpg";
-        // startposition of egg should be at randomly selected egg's base.
-        // this.startPosition  = 0;
 
     }
     removeEggs(){
-
+        // $('#egg').hide();
     }
-    // depends of starting position 
-    move(){
+    updateScoreForOne(){
 
+           
+            if ($("#topLeft").hasClass("change-blue-to-white")){
+                
+                currentGame.currentPlayer.score++
+                $("#score").text(this.score)
+                
+            }
+            else{
+                currentGame.currentPlayer.lifes--
+                $("#lifes").text(this.lifes)
+            }
+        
+    }
+    updateScoreForTwo(){
+
+           
+        if ($("#topRight").hasClass("change-blue-to-white")){
+            
+            currentGame.currentPlayer.score++
+            $("#score").text(this.score)
+            
+        }
+        else{
+            currentGame.currentPlayer.lifes--
+            $("#lifes").text(this.lifes)
+        }
+    
+}
+updateScoreForThree(){
+
+           
+    if ($("#bottomRight").hasClass("change-blue-to-white")){
+        
+        currentGame.currentPlayer.score++
+        $("#score").text(this.score)
+        
+    }
+    else{
+        currentGame.currentPlayer.lifes--
+        $("#lifes").text(this.lifes)
+    }
+
+}
+updateScoreForFour(){
+
+           
+    if ($("#bottomLeft").hasClass("change-blue-to-white")){
+        
+        currentGame.currentPlayer.score++
+        $("#score").text(this.score)
+        
+    }
+    else{
+        currentGame.currentPlayer.lifes--
+        $("#lifes").text(this.lifes)
+    }
+
+}
+
+    move(){
+        var timer1 = 1000;
+        
         if (this.startingPoint === 1 ){
-            console.log(1);
-            this.setEggTragectory(this.eggCoordinates1);
-            //$("#egg").addClass("div-top-left")
-        }   
-        if (this.startingPoint === 2 ){
-            console.log(2)
-            $("#egg").addClass("div-top-right")
-        }   
-        if (this.startingPoint === 3 ){
-            console.log(3)
-            $("#egg").addClass("div-bottom-right")
-        }   
-        if (this.startingPoint === 4){
-            console.log(4)
-            $("#egg").addClass("div-bottom-left")
-        }   
+           let  a =  setInterval(()=>{   
+               
+                if (this.counter < 10){
+                    this.x1 += 20;
+                    this.y1 += 25;
+                    this.counter++
+                    
+                $("#egg").css({top: this.x1, left: this.y1, position:'relative'})
+            } else 
+            {
+                    this.updateScoreForOne();
+                    clearInterval(a);
+                    this.removeEggs();  
+                }
+                },timer1)
+          
+            
+            }
+            if (this.startingPoint === 2 ){
+                let  a =  setInterval(()=>{   
+                    
+                         if (this.counter < 10){
+                         this.x2 += 20;
+                         this.y2 -= 25;
+                         this.counter++
+                         
+                         $("#egg").css({top: this.x2, left: this.y2, position:'relative'})
+                     } else {
+                     
+                        this.updateScoreForTwo()
+                         clearInterval(a);
+                         this.removeEggs();  
+                         
+                     }
+                     },timer1)
+          
+                 } 
+
+                 if (this.startingPoint === 3 ){
+                    let  a =  setInterval(()=>{   
+                        
+                             if (this.counter < 10){
+                             this.x3 += 20;
+                             this.y3 -= 25;
+                             this.counter++
+                             
+                             $("#egg").css({top: this.x3, left: this.y3, position:'relative'})
+                         } else {
+                           
+                             this.updateScoreForThree()
+                             clearInterval(a);
+                             this.removeEggs();  
+                         }
+                         },timer1)
+                   
+                     
+                     }       
+           
+                if (this.startingPoint === 4 ){
+                    let  a =  setInterval(()=>{   
+                        
+                             if (this.counter < 10){
+                             this.x4 += 20;
+                             this.y4 += 25;
+                             this.counter++
+                             
+                             $("#egg").css({top: this.x4, left: this.y4, position:'relative'})
+
+                         } 
+                         else {
+
+                            this.updateScoreForFour()
+                             clearInterval(a);
+                             this.removeEggs();  
+                         }
+                         },timer1)
+                   
+                     
+                     } 
+                 
+    
      }
 
-     setEggTragectory(coordinates) {
-         //create egg div block at coordinate
-
-         let counter = 0;
-         //move egg along the coordinates 
+     setEggTragectory(x,y) {
+        
          let interval1 = setInterval(() => {
-            //draw egg at coordinates[counter];
-            counter ++;
-            if(counter === 4) {
-                //if player is in position 1
-                //add point to player 
-
+    
+            this.counter ++;
+            if(this.counter === 4) {
+               
             }
-            //remove egg div from html
-            //close interval
-            interval1.clearInterval();
+           
+            clearInterval(interval1);
          }, 2000);
      }
+
 
     }

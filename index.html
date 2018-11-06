@@ -16,19 +16,21 @@
            <button id = "start-game-button">Start the game</button>
         </div>
         <!-- EGG -->
-        <div id = "egg">
-            
-        </div>
+        
         <!-- Parent Div -->
         <div id="parentDiv">
+                <div id = "egg">
+            
+                    </div>
         <!-- Game window -->
         <div id = "window">
+            
             <!-- Bucket sections (matrix 2x2) -->
             <div id = "bucket">
-                <div id= "0.0" class = "bucketSection">TopLeft</div>
-                <div id= "1.0" class = "bucketSection" >TopRight</div>
-                <div id= "0.1" class = "bucketSection">BottomLeft</div>
-                <div id= "1.1" class = "bucketSection">BottomRight</div>
+                <div id= "topLeft" class = "bucketSection">1</div>
+                <div id= "topRight" class = "bucketSection" >2</div>
+                <div id= "bottomLeft" class = "bucketSection">4</div>
+                <div id= "bottomRight" class = "bucketSection">3</div>
             </div>
             <!-- Eggs base sections ( 4 of them) -->
             <div id = "left-side-for-egg-base">
@@ -47,38 +49,10 @@
         </div>
 
         <!-- Buttons for navigation -->
-        <div id ="navigationButtons">  
-            <!-- button ArrowUP -->
-            <div id = "arrowUp">
-                <button>⬆</button>
-            </div>
-            <!-- Buttons Left and Right -->
-            <div id = "leftAndright">
-                <button>⬅ </button>
-                <button>➡</button>
-            </div>
-            <!-- Button ArrowDown -->
-            <div id ="arrowDown">
-                <button> ⬇</button>
-            </div>            
-        
-        </div>
+        <p class = "black">Lifes: <span id = "lifes">5</span></p>
+        <p class = "black">Score: <span id = "score">0</span></p>
         <div id = "values">00:00:00</div>
-        <!-- Score,Lifes, and PlayerTurn -->
-        <!-- <div id = "scoreBoard">
-            <p>Score: <span>0</span> <span> <p>Lifes: <span>5</span></p><span><p>Player Turn: <span>First Player</span></p></span></span></p>
-            <p>Lifes: <span>5</span></p>
-            <p>Player Turn: <span>First Player</span></p>
-        </div>
-         -->
-
-
-
-
-
-
-
-
+        
         </div>
         <script src="../easytimer/easytimer.js/dist/easytimer.js"></script>
         <script src = "src/game.js"></script>
