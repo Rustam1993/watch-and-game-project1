@@ -1,7 +1,7 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/cool-background-textures-eo_textures.jpg");
     background-size:cover; 
 }
 /* #parentDiv{
@@ -40,6 +40,7 @@ html, body {
     top: 23.40vw;
     right: -23vw;
     flex-wrap: wrap;
+    z-index: 1;
 }
 .bucketSection{
     height: 100px;
@@ -56,6 +57,7 @@ html, body {
     height: 300px;
     position: relative;
     top: -10vh;
+    z-index: 1;
 }
 #left-side-for-egg-base div{
     height: 125px;
@@ -70,6 +72,7 @@ html, body {
     position: relative;
     left: 66.4vw;
     bottom: 29vw;
+    z-index: 1;
 }
 #right-side-for-egg-base div{
     height: 125px;
@@ -168,8 +171,10 @@ html, body {
     display: unset;
 }
 .black{
-    font-size: 15px;
-    color:white;
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
+    
 }
 .fifty {
     height: 50px !important;
@@ -179,4 +184,9 @@ html, body {
     /* display: none; */
     /* top: 134px !important;
     left: 240px !important; */
+}
+span, p{
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
 }

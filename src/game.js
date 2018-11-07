@@ -108,6 +108,7 @@ $(document).ready(function(){
        
         
       
+        let spawnTimer = 2000;
 
         let b =   setInterval(function(){ 
             
@@ -132,7 +133,18 @@ $(document).ready(function(){
                 window.currentGame.reset();
                 document.getElementById("left-bottom").classList.add("change-blue-to-white");
             }
-            // console.log(window.currentGame.currentPlayer.life)
+
+            
+            if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25){
+                spawnTimer = 1500
+                
+            }
+            if (currentGame.currentPlayer.score > 25){
+                spawnTimer = 200
+               
+            }
+
+            
             if(window.currentGame.currentPlayer.life<1){
                 
                  setTimeout(() => {
@@ -143,7 +155,7 @@ $(document).ready(function(){
                 clearInterval(b);
               
             }
-        }, 500);
+        }, spawnTimer);
      
         
         

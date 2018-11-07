@@ -2,7 +2,7 @@ class Player{
     constructor(){
         this.name = name;
         this.score = 0;
-        this.life = 1020;
+        this.life = 10;
         
         this.startingPoints = [1,2,3,4];
         this.location = 0;
@@ -24,24 +24,22 @@ class Egg{
         this.image = "/images/egg.jpg"
        
         // 
-        this.x1= 164;
-        this.y1=  230;
+        this.x1= 154;
+        this.y1=  220;
         // 
         this.x2= 142;
         this.y2=  1020;
 
         // 
-        this.x3 = 280;
-        this.y3=  987;
+        this.x3 = 260;
+        this.y3=  1020;
         // 
         this.x4= 270;
-        this.y4=  225;
+        this.y4=  215;
         
 
     }
-    removeEggs(){
-        // $('#egg').hide();
-    }
+   
     updateScoreForOne(){
 
            
@@ -104,38 +102,52 @@ updateScoreForFour(){
 }
 
     move(){
-        console.log(document.getElementById("lifes").innerHTML)
-        var timer1 = 500;
-        let newThing = document.createElement('img')
-            newThing.src = "images/egg1.png"
-            newThing.className = "fifty"
-            document.getElementById("parentDiv").appendChild(newThing)
-        let parentDiv = document.getElementById("parentDiv");
+        
+        let timer1 = 900;
+        let newThing = $('<img>')
+
+            newThing.prop('src', "images/egg1.png")
+            newThing.addClass("fifty")
+            $("#parentDiv").append(newThing)
+            
 
         if (this.startingPoint === 1 ){
            let  a =  setInterval(()=>{   
                
               
-                if (this.counter < 9){
-                    this.x1 +=20;
-                    this.y1 +=32;
+                if (this.counter < 8){
+                    this.x1 +=24;
+                    this.y1 +=35;
                     this.counter++
-                    newThing.style.top = this.x1 + "px";
-                    // newThing.style.display = "unset!important"
-                    newThing.style.left  = this.y1 + "px";
+                    newThing.animate({
+                        'top': this.x1+"px",
+                        'left': this.y1+"px"
+                    },500)
+            
+                
                     
                
-              } else 
-                 {
+              }
+               else 
+                {
                     this.updateScoreForOne();
                     clearInterval(a);
-                    this.removeEggs();  
-                    parentDiv.removeChild(newThing);
+                    newThing.remove();
                 }
-                },timer1)
+                if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25 ){
+                           
+                    timer1=300;
+                }
+                if (currentGame.currentPlayer.score > 25){
+                   
+                    timer1=200;
+                }
+            },timer1)
+
                 if(Number(document.getElementById("lifes").innerHTML) < 1){
                     clearInterval(a);
                 }
+                
             
             }
             if (this.startingPoint === 2 ){
@@ -145,44 +157,66 @@ updateScoreForFour(){
                          this.x2 += 27;
                          this.y2 -= 45;
                          this.counter++
-                        newThing.style.top = this.x2 + "px";
-                        newThing.style.left  = this.y2 + "px";
+                         newThing.animate({
+                            'top': this.x2+"px",
+                            'left': this.y2+"px"
+                        },500)
                         
                      } else {
                      
                         this.updateScoreForTwo()
                          clearInterval(a);
-                         this.removeEggs();  
-                         parentDiv.removeChild(newThing)
+                      
+                        newThing.remove();
                      }
                      if(document.getElementById("lifes").innerHTML < 1){
                         clearInterval(a);
                     }
-                     },timer1)
+                    if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25 ){
+                           
+                        timer1=300;
+                    }
+                    if (currentGame.currentPlayer.score > 25){
+                   
+                        timer1=200;
+                    }
+                },timer1)
+                        
           
                  } 
 
                  if (this.startingPoint === 3 ){
                     let  a =  setInterval(()=>{   
                         
-                        if (this.counter < 6){
-                            this.x3 += 35;
-                            this.y3 -= 45;
+                        if (this.counter < 7){
+                            this.x3 += 30;
+                            this.y3 -= 44;
                             this.counter++
-                           newThing.style.top = this.x3 + "px";
-                           newThing.style.left  = this.y3 + "px";
+                            newThing.animate({
+                                'top': this.x3+"px",
+                                'left': this.y3+"px"
+                            },500)
                              
                              
                          } else {
-                            parentDiv.removeChild(newThing)
+                            newThing.remove();
                              this.updateScoreForThree()
                              clearInterval(a);
-                             this.removeEggs();  
+                           
                          }
                          if(document.getElementById("lifes").innerHTML < 1){
                             clearInterval(a);
                         }
-                         },timer1)
+                        if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25 ){
+                           
+                            timer1=300;
+                        }
+                        if (currentGame.currentPlayer.score > 25 ){
+                   
+                            timer1=200;
+                        }
+                    },timer1)
+                            
                    
                      
                      }       
@@ -194,26 +228,36 @@ updateScoreForFour(){
                             this.x4 += 24;
                             this.y4 += 35;
                             this.counter++
-                           newThing.style.top = this.x4 + "px";
-                           newThing.style.left  = this.y4 + "px";
+                            newThing.animate({
+                                'top': this.x4+"px",
+                                'left': this.y4+"px"
+                            },500)
 
                          } 
                          else {
-                            parentDiv.removeChild(newThing)
+                            newThing.remove();
                             this.updateScoreForFour()
                              clearInterval(a);
-                             this.removeEggs();  
+                            
                          }
                          if(document.getElementById("lifes").innerHTML < 1){
                             clearInterval(a);
                         }
+                        if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25 ){
+                           
+                            timer1=300;
+                        }
+                        if (currentGame.currentPlayer.score > 25){
+                   
+                            timer1=200;
+                        }
                          
-                         },timer1)
-                         
+                       
+                    },timer1)
+                           
 
-                     
                      } 
-                 
+
     
      }
 
