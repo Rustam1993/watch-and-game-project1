@@ -94,6 +94,7 @@ $(document).ready(function(){
   
 
     
+   
 
     $('#start-game-button').click(function ()   {
         
@@ -108,10 +109,12 @@ $(document).ready(function(){
        
         
       
-        let spawnTimer = 2000;
 
-        let b =   setInterval(function(){ 
-            
+        // let b =   setInterval(function(){
+            function eggDrop(theTimer) { 
+            let spawnTimer = theTimer; 
+       let x = setInterval(function(){ 
+            console.log("======= ", spawnTimer);
             let startingPointForBase = window.currentGame.startingPointforBase();
             if ((startingPointForBase===1)) {
                 window.currentGame.spawnEggs(1);
@@ -135,12 +138,13 @@ $(document).ready(function(){
             }
             
             
-            if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25){
-                spawnTimer = 1500
-                
+            if (currentGame.currentPlayer.score > 9 && currentGame.currentPlayer.score < 25){
+                clearInterval(x)
+                eggDrop(1500);
             }
             if (currentGame.currentPlayer.score > 25){
-                spawnTimer = 200
+                clearInterval(x)
+                eggDrop(1000);
                
             }
 
@@ -152,13 +156,17 @@ $(document).ready(function(){
                  }, 1)   
                  window.location.reload()
                 
-                clearInterval(b);
+                // clearInterval(b);
+                clearInterval();
               
             }
+            if(spawnTimer > 100) {
+                spawnTimer -= 15;
+            }
         }, spawnTimer);
-     
+    }
         
-        
+        eggDrop(2000);
 });
 
 

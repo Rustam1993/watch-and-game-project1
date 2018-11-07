@@ -102,8 +102,8 @@ updateScoreForFour(){
 }
 
     move(){
-        
-        let timer1 = 900;
+        let animationTimer = 200;
+        let timer1 = 500;
         let newThing = $('<img>')
 
             newThing.prop('src', "images/egg1.png")
@@ -122,7 +122,7 @@ updateScoreForFour(){
                     newThing.animate({
                         'top': this.x1+"px",
                         'left': this.y1+"px"
-                    },500)
+                    },animationTimer)
             
                 
                     
@@ -160,7 +160,7 @@ updateScoreForFour(){
                          newThing.animate({
                             'top': this.x2+"px",
                             'left': this.y2+"px"
-                        },500)
+                        },animationTimer)
                         
                      } else {
                      
@@ -195,7 +195,7 @@ updateScoreForFour(){
                             newThing.animate({
                                 'top': this.x3+"px",
                                 'left': this.y3+"px"
-                            },500)
+                            },animationTimer)
                              
                              
                          } else {
@@ -231,7 +231,7 @@ updateScoreForFour(){
                             newThing.animate({
                                 'top': this.x4+"px",
                                 'left': this.y4+"px"
-                            },500)
+                            },animationTimer)
 
                          } 
                          else {
