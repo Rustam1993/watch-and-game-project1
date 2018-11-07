@@ -1,7 +1,8 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color:black;
+    background-image: url("../images/background.jpg");
+    background-size:cover; 
 }
 /* #parentDiv{
     display: flex;
@@ -21,11 +22,13 @@ html, body {
 #window{
     width: 900px;
     height: 500px;
-    background-color: red;
+    background-image: url("../images/cover.jpg");
+    background-size:cover; 
     margin-right: auto;
     margin-left: auto;
     color: white;
     position: relative;
+    border-radius: 10px;
 }
 #bucket{
     position: relative;
@@ -135,7 +138,7 @@ html, body {
 #egg{
     /* display: none ; */
     position: absolute;
-    background-image: url("../images/egg.jpg");
+    background-image: url("../images/egg1.png");
     width: 50px;
     height: 50px;
     background-size: cover;
@@ -167,4 +170,13 @@ html, body {
 .black{
     font-size: 15px;
     color:white;
+}
+.fifty {
+    height: 50px !important;
+    width: 50px;
+    position: absolute;
+    z-index: 1;
+    /* display: none; */
+    /* top: 134px !important;
+    left: 240px !important; */
 }
