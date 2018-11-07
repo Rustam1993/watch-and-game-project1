@@ -133,7 +133,7 @@ $(document).ready(function(){
                 window.currentGame.reset();
                 document.getElementById("left-bottom").classList.add("change-blue-to-white");
             }
-
+            
             
             if (currentGame.currentPlayer.score > 10 && currentGame.currentPlayer.score < 25){
                 spawnTimer = 1500
