@@ -142,14 +142,14 @@ $(document).ready(function(){
                 clearInterval(x)
                 eggDrop(1500);
             }
-            if (currentGame.currentPlayer.score > 15){
+            if (currentGame.currentPlayer.score > 15 && currentGame.currentPlayer.score < 25){
                 clearInterval(x)
                 eggDrop(1000);
                
             }
             if (currentGame.currentPlayer.score > 25){
                 clearInterval(x)
-                eggDrop(500);
+                eggDrop(700);
                
             }
 
@@ -165,9 +165,9 @@ $(document).ready(function(){
                 clearInterval();
               
             }
-            if(spawnTimer > 100) {
-                spawnTimer -= 15;
-            }
+            // if(spawnTimer > 100) {
+            //     spawnTimer -= 15;
+            // }
         }, spawnTimer);
     }
         
