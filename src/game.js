@@ -160,9 +160,9 @@ $(document).ready(function(){
                 clearInterval();
               
             }
-            // if(spawnTimer > 100) {
-            //     spawnTimer -= 15;
-            // }
+            if(spawnTimer > 100) {
+                spawnTimer -= 15;
+            }
         }, spawnTimer);
     }
         
