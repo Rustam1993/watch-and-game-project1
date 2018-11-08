@@ -147,6 +147,11 @@ $(document).ready(function(){
                 eggDrop(1000);
                
             }
+            if (currentGame.currentPlayer.score > 25){
+                clearInterval(x)
+                eggDrop(500);
+               
+            }
 
             
             if(window.currentGame.currentPlayer.life<1){
