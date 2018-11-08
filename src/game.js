@@ -114,7 +114,7 @@ $(document).ready(function(){
             function eggDrop(theTimer) { 
             let spawnTimer = theTimer; 
        let x = setInterval(function(){ 
-            console.log("======= ", spawnTimer);
+            
             let startingPointForBase = window.currentGame.startingPointforBase();
             if ((startingPointForBase===1)) {
                 window.currentGame.spawnEggs(1);
@@ -138,11 +138,11 @@ $(document).ready(function(){
             }
             
             
-            if (currentGame.currentPlayer.score > 9 && currentGame.currentPlayer.score < 25){
+            if (currentGame.currentPlayer.score > 9 && currentGame.currentPlayer.score < 15){
                 clearInterval(x)
                 eggDrop(1500);
             }
-            if (currentGame.currentPlayer.score > 25){
+            if (currentGame.currentPlayer.score > 15){
                 clearInterval(x)
                 eggDrop(1000);
                
@@ -160,9 +160,9 @@ $(document).ready(function(){
                 clearInterval();
               
             }
-            if(spawnTimer > 100) {
-                spawnTimer -= 15;
-            }
+            // if(spawnTimer > 100) {
+            //     spawnTimer -= 15;
+            // }
         }, spawnTimer);
     }
         
